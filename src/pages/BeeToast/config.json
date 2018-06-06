@@ -1,0 +1,40 @@
+{
+  "demos": [
+    {
+      "id": "inner",
+      "images": [
+        "https://s10.mogucdn.com/mlcdn/c45406/171020_31d90lgggj1jb3b4igl3fc00l43a3_382x88.png"
+      ]
+    },
+    {
+      "id": "default",
+      "images": [
+        "https://s10.mogucdn.com/mlcdn/c45406/171020_31d90lgggj1jb3b4igl3fc00l43a3_382x88.png"
+      ]
+    },
+    {
+      "id": "long-text",
+      "images": [
+        "https://s10.mogucdn.com/mlcdn/c45406/171020_189ic37hk9jklfkli2ihigjcb4ba2_426x124.png"
+      ]
+    },
+    {
+      "id": "icon",
+      "images": [
+        "https://s10.mogucdn.com/mlcdn/c45406/171020_5c0g049kl49l3k9691ld6d05lj003_300x174.png"
+      ]
+    },
+    {
+      "id": "icon-image",
+      "images": [
+        "https://s10.mogucdn.com/mlcdn/c45406/171020_127i5dljbk5172dhlkdf6f644h1dg_300x174.png"
+      ]
+    },
+    {
+      "id": "icon-color",
+      "images": [
+        "https://s10.mogucdn.com/mlcdn/c45406/171020_06g86a02c9gh792d879j660158jle_300x174.png"
+      ]
+    }
+  ]
+}

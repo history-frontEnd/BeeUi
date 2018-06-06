@@ -1,0 +1,88 @@
+<template>
+  <view class="index">
+    <view class="index-hd">
+      <image class="index-logo" src="../../images/bee.jpg"></image>
+      <view class="index-desc">基于wepy的小程序组件库</view>
+    </view>
+
+    <view class="index-body" wx:for="{{menus}}" wx:key="id">
+      <view class="menu__title">{{item.name}}</view>
+      <view class="menu__body">
+        <wxc-list class="menu__item"
+                  wx:for="{{item.pages}}"
+                  wx:key="id"
+                  wx:for-index="i"
+                  wx:for-item="page"
+                  data-id="{{page.id}}"
+                  title="{{page.id + ' ' + page.name}}"
+                  mode="{{i == item.pages.length-1 ? 'none': ''}}"
+                  bindtap="navigate"></wxc-list>
+      </view>
+    </view>
+
+    <view class="index-ft">
+      <image class="github__icon" mode="aspectFit" src="https://s10.mogucdn.com/mlcdn/c45406/171109_6k95i4l5lfcl458a4i7a37jd84598_64x64.png"></image>
+      <text class="github__url">http://172.16.0.98/FD/BeeUi</text>
+    </view>
+  </view>
+</template>
+
+<script>
+import config from './config'
+let { menus } = config
+import wepy from 'wepy';
+export default class Index extends wepy.page {
+  config = {
+    usingComponents: {
+      'wxc-list': '../../../wxc/@minui/wxc-list/dist/index'
+    }
+  }
+  data = {
+    menus
+  }
+
+  methods = {
+    navigate(e) {
+      let id = e.target.dataset.id;
+      wepy.navigateTo({
+        url: `/pages/${id}/index`
+      });
+    }
+  }
+}
+</script>
+
+<style lang="less">
+   @import "../../common/assets/style/layout.less";
+  .index-ft {
+    margin-top: -25rpx;
+  }
+  .github__icon {
+    width: 34rpx;
+    height: 34rpx;
+    margin-right: 10rpx;
+    vertical-align: middle;
+  }
+  .github__url {
+    font-family: Monaco;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    color: #888;
+    font-size: 26rpx;
+    vertical-align: middle;
+  }
+  .index-body {
+    margin-bottom: 30rpx;
+  }
+  .menu__title {
+    height: 66rpx;
+    line-height: 66rpx;
+    margin-left: 30rpx;
+    font-size: 32rpx;
+    color: #666;
+  }
+  .menu__body {
+    background: #fff;
+    color: rgb(120, 182,252);
+  }
+</style>

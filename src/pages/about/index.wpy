@@ -1,0 +1,25 @@
+<template>
+  haha
+</template>
+
+<script>
+import wepy from 'wepy';
+export default class Index extends wepy.page {
+  config = {
+    // usingComponents: {
+    //   'wxc-list': '@minui/wxc-list'
+    // }
+  }
+  methods = {
+    navigate(e) {
+      let id = e.target.dataset.id;
+      wepy.navigateTo({
+        url: `/pages/${id}/index`
+      });
+    }
+  }
+}
+</script>
+
+<style>
+</style>

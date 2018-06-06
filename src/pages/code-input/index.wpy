@@ -1,0 +1,45 @@
+<template>
+  <example title="bee-code-input" desc="手机验证码组件">
+
+  <example-demo title="默认示例" desc="点击发送验证码" source="{{source}}">
+    <demoDefault></demoDefault>
+  </example-demo>
+
+  </example>
+</template>
+
+<script>
+import wepy from 'wepy'
+import demoDefault from './demos/demo-default'
+export default class Index extends wepy.page {
+  config = {
+    usingComponents: {
+      'example': '../../../wxc/@minui/wxc-example/dist/index',
+      'example-demo': '../../../wxc/@minui/wxc-example-demo/dist/index',
+      'example-md': '../../../wxc/@minui/wxc-example-md/dist/index'
+    }
+  }
+  components = {
+    demoDefault
+  }
+  data = {
+    source: `
+      import wepy from 'wepy'
+
+      import BeeCodeInput from 'packages/bee-code-input/src/index'
+      export default class DemoDefault extends wepy.component {
+        config = {
+          navigationBarTitleText: 'bee-code-input'
+        }
+        components = {
+          BeeCodeInput
+        }
+        data = {}
+        methods = {}
+      }`
+  }
+}
+</script>
+
+<style lang="less">
+</style>

@@ -1,0 +1,20 @@
+<template>
+  <BeeCodeInput></BeeCodeInput>
+</template>
+
+<script>
+import wepy from 'wepy'
+import BeeCodeInput from 'packages/bee-code-input/index'
+export default class DemoDefault extends wepy.component {
+  config = {
+    navigationBarTitleText: 'bee-code-input'
+  }
+  components = {
+    BeeCodeInput
+  }
+  data = {}
+  methods = {}
+}
+</script>
+<style lang="less">
+</style>

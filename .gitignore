@@ -1,0 +1,8 @@
+node_modules/*
+dist/*
+.wepycache
+.vscode/*
+.idea/*
+package-lock.json
+yarn-error.log
+.DS_Store

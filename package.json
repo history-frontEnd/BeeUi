@@ -1,0 +1,53 @@
+{
+  "name": "testBee",
+  "description": "MinUI-组件库",
+  "version": "1.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "@minui/wxc-example": "^1.0.0",
+    "@minui/wxc-example-demo": "^1.0.1",
+    "@minui/wxc-example-md": "^1.0.1",
+    "@minui/wxc-icon": "^1.0.9",
+    "@minui/wxc-list": "^1.0.1",
+    "@minui/wxc-toast": "^1.0.9",
+    "babel-plugin-syntax-export-extensions": "^6.13.0",
+    "promise-polyfill": "^7.1.2",
+    "wepy": "^1.7.1",
+    "wepy-async-function": "^1.4.4"
+  },
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development wepy build --watch",
+    "build": "cross-env NODE_ENV=production wepy build --no-cache",
+    "dev:web": "wepy build --output web",
+    "clean": "find ./dist -maxdepth 1 -not -name 'project.config.json' -not -name 'dist' | xargs rm -rf",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.2.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.5",
+    "babel-plugin-transform-export-extensions": "^6.22.0",
+    "babel-plugin-transform-node-env-inline": "^0.3.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
+    "cross-env": "^5.1.3",
+    "eslint": "^3.18.0",
+    "eslint-config-standard": "^7.1.0",
+    "eslint-friendly-formatter": "^2.0.7",
+    "eslint-plugin-html": "^2.0.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^2.0.1",
+    "util": "^0.10.4",
+    "wepy-compiler-babel": "^1.5.3",
+    "wepy-compiler-less": "^1.3.12",
+    "wepy-eslint": "^1.5.4",
+    "wepy-plugin-imagemin": "^1.5.3",
+    "wepy-plugin-px2units": "^1.0.0",
+    "wepy-plugin-uglifyjs": "^1.3.7"
+  },
+  "minConfig": {
+    "projectType": "component"
+  }
+}

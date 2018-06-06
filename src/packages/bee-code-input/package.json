@@ -1,0 +1,19 @@
+{
+  "name": "@b1/bee-code-input",
+  "version": "1.0.3",
+  "description": "手机验证码组件 - 小程序组件",
+  "main": "index.wpy",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/meili/minui/tree/master/packages/bee-code-input"
+  },
+  "author": "",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "minConfig": {
+    "component": true
+  }
+}

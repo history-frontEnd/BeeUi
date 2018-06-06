@@ -1,0 +1,26 @@
+<template>
+  <view>
+    <beeToast />
+    <button @tap="showToast">属性传值</button>
+  </view>
+</template>
+<script>
+import wepy from 'wepy'
+import beeToast from 'packages/bee-toast/src/index'
+export default class DemoDefault extends wepy.component {
+  config = {
+    navigationBarTitleText: 'beeToast'
+  }
+  components = {
+    beeToast
+  }
+  data = {}
+  methods = {
+    showToast () {
+      this.$invoke('beeToast', 'success', 'simple-toast success')
+    }
+  }
+}
+</script>
+<style lang="less">
+</style>
