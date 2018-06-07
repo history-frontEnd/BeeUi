@@ -9,7 +9,7 @@ BeeUi是基于[wepy](https://github.com/Tencent/wepy)的一套小程序开发组
 1. 安装 bee-cli 命令行工具 `$ npm install -g @b1/bee-cli`;
 2. Clone BeeUi 仓库到本地；
 3. 安装依赖 `$ npm install`
-4. 在 BeeUi 根目录下执行 `$ wepy dev`，生成 dist/ 目录；
+4. 在 BeeUi 根目录下执行 `$ npm run dev`，生成 dist/ 目录；
 5. 微信开发者工具 —— 新建一个小程序，目录指向生成的 dist/；
 
 6. 开发自己的组件库时，删除项目的.git文件,并且remote add到你自己的git仓库中;
