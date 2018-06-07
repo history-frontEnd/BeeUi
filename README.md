@@ -29,7 +29,7 @@ $ bee-cli new *name
 - **开发实时编译**
 
 ``` bash
-$ wepy dev
+$ npm run dev
 ```
 
 - **发布组件**
@@ -63,6 +63,19 @@ export default class Index extends wepy.component {
   methods = {}
 }
 ```
+### ◆ 相关资源：
+- [小程序开发文档](https://developers.weixin.qq.com/miniprogram/dev/)
+- [wepy](https://tencent.github.io/wepy/)
+- [min-cli](https://github.com/meili/min-cli)
+- [minui](https://github.com/meili/minui)
+
 ### ◆ 开源协议
 
 基于 [MIT](http://opensource.org/licenses/MIT) License，请自由的享受、参与开源。
+
+### ◆ Contributing
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Added some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request
