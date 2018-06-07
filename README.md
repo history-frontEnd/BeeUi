@@ -19,7 +19,7 @@ BeeUi是基于[wepy](https://github.com/Tencent/wepy)的一套小程序开发组
 - **新建组件**
 
 ``` bash
-$ bee-cli new *name
+$ bee new *name
 ```
 
 1. 该命令会在src/packages生成组件的npm库，同时生成指定模板的样例页面
@@ -35,7 +35,7 @@ $ npm run dev
 - **发布组件**
 
 ``` bash
-$ bee-cli publish
+$ bee publish
 ```
 
 1. 如果检测不到你的组件更新，使用git add 把新组件加入到索引中
