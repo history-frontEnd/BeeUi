@@ -1,13 +1,6 @@
-import { domain } from 'config'
+import { domain } from 'config';
+
+// [`请求地址`]: '对应的js文件（js里模拟请求返回的json数据结构）'
 module.exports = {
-  [`${domain}/khaos/login`]: 'login',
-  [`${domain}/userregistermodify`]: 'userregistermodify',
-  [`${domain}/sms/test`]: 'smsTest',
-  [`${domain}/reportsList`]: 'reportsList',
-  [`${domain}/reportDetails`]: 'reportDetails',
-  [`${domain}/ordersList`]: 'ordersList',
-  [`${domain}/khaos/getreportlist`]: 'unLogin',
-  [`${domain}/khaos/placeOrder`]: 'placeOrder',
-  [`${domain}/khaos/getuserinfo`]: 'getUserInfo',
-  [`${domain}/khaos/queryProvice`]: 'queryProvice'
-}
+  [`${domain}/khaos/login`]: 'login'
+};

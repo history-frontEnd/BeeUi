@@ -1,7 +1,6 @@
 <template>
   <BeeCodeInput></BeeCodeInput>
 </template>
-
 <script>
 import wepy from 'wepy'
 import BeeCodeInput from 'packages/bee-code-input/index'

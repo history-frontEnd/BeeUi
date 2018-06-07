@@ -1,4 +1,4 @@
-import wepy from 'wepy'
+import wepy from 'wepy';
 import {
   back,
   link,
@@ -7,13 +7,10 @@ import {
   loading,
   getSystemInfo,
   Debug
-} from 'utils'
-import db from 'utils/db'
-
-import Bus from 'utils/bus'
-import Base64 from './base64'
-wepy.$bus = new Bus()
-wepy.$base64 = new Base64()
+} from 'utils';
+import db from 'utils/db';
+import Bus from 'utils/bus';
+wepy.$bus = new Bus();
 
 Object.assign(wepy.component.prototype, {
   $back: back,
@@ -21,13 +18,12 @@ Object.assign(wepy.component.prototype, {
   $toast: toast,
   $modal: modal,
   $loading: loading,
-  $getSystemInfo: getSystemInfo,
   $d: Debug,
   $debug: Debug,
   $db: db
-})
+});
 Object.assign(wepy.app.prototype, {
   $db: db,
   $d: Debug,
   $debug: Debug
-})
+});

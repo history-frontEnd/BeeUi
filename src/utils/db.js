@@ -1,92 +1,81 @@
-import { dbPrefix as prefix } from 'config'
+import { dbPrefix as prefix } from 'config';
 import wx from './wx';
 
-export const Get = (key) => {
-  return wx.getStorageSync(prefix + key)
-}
+const get = key => {
+  return wx.getStorageSync(prefix + key);
+};
 
-export const Set = (key, value) => {
-  wx.setStorageSync(prefix + key, value)
-}
+const set = (key, value) => {
+  wx.setStorageSync(prefix + key, value);
+};
 
-export const Remove = (key) => {
-  wx.removeStorageSync(prefix + key)
-}
+const remove = key => {
+  wx.removeStorageSync(prefix + key);
+};
 
-export const Clear = () => {
-  wx.clearStorageSync()
-}
+const clear = () => {
+  wx.clearStorageSync();
+};
 
-export const GetObj = (objKey, valueKey) => {
-  let data = Get(objKey) && JSON.parse(Get(objKey)) || ''
-  return (valueKey === undefined && data) || (data && data[valueKey]) || ''
-}
+const getObj = (objKey, valueKey) => {
+  let data = (get(objKey) && JSON.parse(get(objKey))) || '';
+  return (valueKey === undefined && data) || (data && data[valueKey]) || '';
+};
 
-// export const GetObj = (objKey, valueKey) => {
-//   let data;
-//   try {
-//     data = JSON.parse(Get(objKey))
-//   } catch (error) {
-//     data = {};
-//   }
-//   return (valueKey === undefined && data) || data[valueKey]
-// }
+const setObj = (objKey, obj) => {
+  set(objKey, JSON.stringify(obj));
+};
 
-export const SetObj = (objKey, obj) => {
-  Set(objKey, JSON.stringify(obj))
-}
-
-export const RemoveObj = (objKey, valueKey) => {
+const removeObj = (objKey, valueKey) => {
   if (valueKey) {
-    let obj = GetObj(objKey)
-    delete obj[valueKey]
-    SetObj(objKey, obj)
+    let obj = getObj(objKey);
+    delete obj[valueKey];
+    setObj(objKey, obj);
   } else {
-    wx.removeStorageSync(prefix + objKey)
+    wx.removeStorageSync(prefix + objKey);
   }
-}
+};
 
-export const UpdateObj = (objKey, key, value) => {
-  let obj = GetObj(objKey)
-  obj[key] = value
-  SetObj(objKey, obj)
-}
+const updateObj = (objKey, key, value) => {
+  let obj = getObj(objKey);
+  obj[key] = value;
+  setObj(objKey, obj);
+};
 
-// db.SetUser({name: 'aaa'}) 设置整个user
-// db.SetUser('age', 12) 设置key
-export const SetUser = (userDataOrKey, value) => {
+const setUser = (userDataOrKey, value) => {
   if (value) {
-    UpdateObj('user', userDataOrKey, value)
+    updateObj('user', userDataOrKey, value);
   } else {
-    SetObj('user', userDataOrKey)
+    setObj('user', userDataOrKey);
   }
-}
+};
 
-// db.GetUser() 获取整个user
-// db.GetUser('name') 获取key
-export const GetUser = (valueKey) => {
-  return GetObj('user', valueKey)
-}
+// db.getUser() 获取整个user
+// db.getUser('name') 获取key
+const getUser = valueKey => {
+  return getObj('user', valueKey);
+};
 
-// db.RemoveUser() 删除user
-// db.RemoveUser('name') 删除user一个key
-export const RemoveUser = (valueKey) => {
-  RemoveObj('user', valueKey)
-}
+// db.removeUser() 删除user
+// db.removeUser('name') 删除user一个key
+const removeUser = valueKey => {
+  removeObj('user', valueKey);
+};
 
-export const UpdateUser = (key, value) => {
-  UpdateObj('user', key, value)
-}
+const updateUser = (key, value) => {
+  updateObj('user', key, value);
+};
 
 export default {
-  Set,
-  Get,
-  Remove,
-  Clear,
-  SetObj,
-  GetObj,
-  RemoveObj,
-  SetUser,
-  GetUser,
-  RemoveUser
-}
+  set,
+  get,
+  remove,
+  clear,
+  setObj,
+  getObj,
+  removeObj,
+  setUser,
+  getUser,
+  removeUser,
+  updateUser
+};

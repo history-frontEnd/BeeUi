@@ -1,1 +1,1 @@
-export default wx
+export default wx;

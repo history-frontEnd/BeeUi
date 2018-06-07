@@ -1,16 +1,22 @@
 export default class Base64 {
   constructor() {
-    this.keyStr = 'ABCDEFGHIJKLMNOP' +
-    'QRSTUVWXYZabcdef' +
-    'ghijklmnopqrstuv' +
-    'wxyz0123456789+/' +
-    '=';
+    this.keyStr =
+      'ABCDEFGHIJKLMNOP' +
+      'QRSTUVWXYZabcdef' +
+      'ghijklmnopqrstuv' +
+      'wxyz0123456789+/' +
+      '=';
   }
   encode64(input) {
     input = escape(input);
     var output = '';
-    var chr1, chr2, chr3 = '';
-    var enc1, enc2, enc3, enc4 = '';
+    var chr1,
+      chr2,
+      chr3 = '';
+    var enc1,
+      enc2,
+      enc3,
+      enc4 = '';
     var i = 0;
     do {
       chr1 = input.charCodeAt(i++);
@@ -25,11 +31,12 @@ export default class Base64 {
       } else if (isNaN(chr3)) {
         enc4 = 64;
       }
-      output = output +
-      this.keyStr.charAt(enc1) +
-      this.keyStr.charAt(enc2) +
-      this.keyStr.charAt(enc3) +
-      this.keyStr.charAt(enc4);
+      output =
+        output +
+        this.keyStr.charAt(enc1) +
+        this.keyStr.charAt(enc2) +
+        this.keyStr.charAt(enc3) +
+        this.keyStr.charAt(enc4);
       chr1 = chr2 = chr3 = '';
       enc1 = enc2 = enc3 = enc4 = '';
     } while (i < input.length);
@@ -37,15 +44,20 @@ export default class Base64 {
   }
   decode64(input) {
     var output = '';
-    var chr1, chr2, chr3 = '';
-    var enc1, enc2, enc3, enc4 = '';
+    var chr1,
+      chr2,
+      chr3 = '';
+    var enc1,
+      enc2,
+      enc3,
+      enc4 = '';
     var i = 0;
     // remove all characters that are not A-Z, a-z, 0-9, +, /, or =
     var base64test = /[^A-Za-z0-9\+\/\=]/g;
     if (base64test.exec(input)) {
-    //   alert('There were invalid base64 characters in the input text.\n' +
-    // 'Valid base64 characters are A-Z, a-z, 0-9, '+', '/', and '='\n' +
-    // 'Expect errors in decoding.');
+      //   alert('There were invalid base64 characters in the input text.\n' +
+      // 'Valid base64 characters are A-Z, a-z, 0-9, '+', '/', and '='\n' +
+      // 'Expect errors in decoding.');
       console.log('invalid base64 characters');
     }
     input = input.replace(/[^A-Za-z0-9\+\/\=]/g, '');

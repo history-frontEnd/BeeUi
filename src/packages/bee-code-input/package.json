@@ -1,6 +1,6 @@
 {
   "name": "@b1/bee-code-input",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "手机验证码组件 - 小程序组件",
   "main": "index.wpy",
   "scripts": {},

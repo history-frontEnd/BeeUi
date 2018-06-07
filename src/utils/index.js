@@ -1,75 +1,75 @@
-import wepy from 'wepy'
-import wx from 'utils/wx'
-import {
-  isPord,
-  isDebug
-} from 'config'
+import wepy from 'wepy';
+import wx from 'utils/wx';
+import { isPord, isDebug } from 'config';
 
 export function deepCopy(source) {
-  let result = {}
+  let result = {};
   for (let key in source) {
-    result[key] = typeof source[key] === 'object' ? deepCoyp(source[key]) : source[key]
+    result[key] =
+      typeof source[key] === 'object' ? deepCoyp(source[key]) : source[key];
   }
-  return result
+  return result;
 }
 
-export function Debug (msg) {
+export function Debug(msg) {
   if (!isDebug || isPord) {
-    return
+    return;
   }
-  if (typeof (msg) === 'string') {
-    console.log(' ====Debug====: ' + msg)
+  if (typeof msg === 'string') {
+    console.log(' ====Debug====: ' + msg);
   } else {
-    console.log(' ====Debug====: ')
-    console.log(msg)
+    console.log(' ====Debug====: ');
+    console.log(msg);
   }
 }
-export function link (url) {
+export function link(url) {
   wx.navigateTo({
     url: url
-  })
+  });
 }
 
-export function back () {
+export function back() {
   wepy.navigateBack({
     delta: 2
-  })
+  });
 }
 
-export function toast (title, type = 'none', duration = 2000, onHide) {
-  if (!title) return
+export function toast(title, type = 'none', duration = 2000, onHide) {
+  if (!title) return;
   setTimeout(() => {
     wepy.showToast({
       title: title,
       icon: type,
       mask: true,
       duration: duration
-    })
-  }, 300)
+    });
+  }, 300);
   if (onHide) {
     setTimeout(() => {
-      onHide()
-    }, duration)
+      onHide();
+    }, duration);
   }
 }
 
-export function modal (title, content, showCancel = false) {
-  return wepy.showModal({
-    title,
-    content,
-    showCancel
-  }).then(data => data.confirm)
+export function modal(title, content, showCancel = false) {
+  return wepy
+    .showModal({
+      title,
+      content,
+      showCancel
+    })
+    .then(data => data.confirm);
 }
 
-export function loading (title = '加载中...', mask = true) {
+export function loading(title = '加载中...', mask = true) {
   if (title) {
-    return wepy.showLoading({ title, mask })
+    return wepy.showLoading({ title, mask });
   } else {
-    return wepy.hideLoading()
+    return wepy.hideLoading();
   }
 }
 
-export async function getSystemInfo (fields = []) {
+export async function getSystemInfo(fields = []) {
   let systemInfo = await wepy.getSystemInfo();
   return systemInfo;
 }

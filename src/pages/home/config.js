@@ -13,7 +13,7 @@ module.exports = {
           "code": "https://s10.mogucdn.com/mlcdn/c45406/171107_1361j09d04c4426a5gd743i7kk5hg_480x480.jpg"
         },
         {
-          "id": "BeeArea",
+          "id": "bee-area",
           "name": "三级地区级联",
           "icon": "",
           "code": "https://s10.mogucdn.com/mlcdn/c45406/171107_1361j09d04c4426a5gd743i7kk5hg_480x480.jpg"
@@ -28,7 +28,7 @@ module.exports = {
       icon: 'https://s10.mogucdn.com/mlcdn/c45406/171016_4i2hdb0798de3h5l50i3ag3je5ij2_68x68.png',
       pages: [
         {
-          "id": "BeeUpload",
+          "id": "bee-upload",
           "name": "上传图片",
           "icon": "",
           "code": "https://s10.mogucdn.com/mlcdn/c45406/171107_1361j09d04c4426a5gd743i7kk5hg_480x480.jpg"
@@ -42,7 +42,7 @@ module.exports = {
       icon: 'https://s10.mogucdn.com/mlcdn/c45406/171016_2be738l0aikbceg84216ah07b5h4f_68x68.png',
       pages: [
         {
-          "id": "BeeToast",
+          "id": "bee-toast",
           "name": "提示框",
           "icon": "",
           "code": "https://s10.mogucdn.com/mlcdn/c45406/171107_1361j09d04c4426a5gd743i7kk5hg_480x480.jpg"

@@ -1,0 +1,27 @@
+<template>
+  <example title="toast" desc="提示框">
+    <example-demo title="title传值" desc="属性传参设置文案" source="123">
+      <demoDefault></demoDefault>
+    </example-demo>
+  </example>
+</template>
+
+<script>
+import wepy from 'wepy'
+import demoDefault from './demos/demo-default'
+export default class Index extends wepy.page {
+  config = {
+    usingComponents: {
+      'example': '../../../wxc/@minui/wxc-example/dist/index',
+      'example-demo': '../../../wxc/@minui/wxc-example-demo/dist/index',
+      'example-md': '../../../wxc/@minui/wxc-example-md/dist/index'
+    }
+  }
+  components = {
+    demoDefault
+  }
+  data = {}
+}
+</script>
+<style lang="less">
+</style>

@@ -16,7 +16,7 @@ export default class extends wepy.app {
       'pages/home/index',
       'pages/about/index',
       'pages/code-input/index',
-      'pages/BeeToast/index'
+      'pages/bee-toast/index'
     ],
     window: {
       backgroundTextStyle: 'dark',
