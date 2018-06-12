@@ -16,6 +16,7 @@ export default class extends wepy.app {
       'pages/home/index',
       'pages/about/index',
       'pages/code-input/index',
+      'pages/address-picker/index',
       'pages/toast/index'
 
     ],

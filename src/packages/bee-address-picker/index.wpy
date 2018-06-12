@@ -1,0 +1,20 @@
+<template>
+  <view class="bee-address-picker">
+    <view>BeeAddressPicker Component</view>
+  </view>
+
+</template>
+
+<script>
+import wepy from 'wepy'
+export default class Index extends wepy.component {
+  data = {}
+  events = {}
+  methods = {}
+  onLoad() {}
+}
+</script>
+<style lang="less">
+.bee-address-picker {
+}
+</style>

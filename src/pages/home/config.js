@@ -13,7 +13,7 @@ module.exports = {
           "code": "https://s10.mogucdn.com/mlcdn/c45406/171107_1361j09d04c4426a5gd743i7kk5hg_480x480.jpg"
         },
         {
-          "id": "tt",
+          "id": "address-picker",
           "name": "三级地区级联",
           "icon": "",
           "code": "https://s10.mogucdn.com/mlcdn/c45406/171107_1361j09d04c4426a5gd743i7kk5hg_480x480.jpg"

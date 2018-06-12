@@ -1,0 +1,20 @@
+<template>
+  <BeeAddressPicker></BeeAddressPicker>
+</template>
+
+<script>
+import wepy from 'wepy'
+import BeeAddressPicker from 'packages/bee-address-picker/index'
+export default class DemoDefault extends wepy.component {
+  config = {
+    navigationBarTitleText: 'bee-address-picker'
+  }
+  components = {
+    BeeAddressPicker
+  }
+  data = {}
+  methods = {}
+}
+</script>
+<style lang="less">
+</style>

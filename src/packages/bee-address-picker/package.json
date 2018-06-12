@@ -1,0 +1,19 @@
+{
+  "name": "@b1/bee-address-picker",
+  "version": "1.0.1",
+  "description": "省市区组件 - 小程序组件",
+  "main": "./src/index.wpy",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/meili/minui/tree/master/packages/bee-address-picker"
+  },
+  "author": "",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "minConfig": {
+    "component": true
+  }
+}
