@@ -1,20 +1,254 @@
 <template>
   <view class="bee-address-picker">
-    <view>BeeAddressPicker Component</view>
+    <view wx:if="{{addressMenuIsShow}}" class="rgb-view" @tap="hideCitySelected">
+      <view class="picker-view">
+        <view class="pick-btn">
+          <text @tap="cityCancel">取消</text>
+          <text @tap="citySure">确定</text>
+        </view>
+        <picker-view @change="cityChange" value="{{address}}">
+          <picker-view-column>
+            <view wx:for="{{provinces}}" class="picker-item" wx:key="{{item.area_code}}">
+              {{item.area_name}}</view>
+          </picker-view-column>
+          <picker-view-column>
+            <view wx:for="{{citys}}" class="picker-item" wx:key="{{item.area_code}}">
+              {{item.area_name}}</view>
+          </picker-view-column>
+          <picker-view-column>
+            <view wx:for="{{areas}}" class="picker-item" wx:key="{{item.area_code}}">
+              {{item.area_name}}</view>
+          </picker-view-column>
+        </picker-view>
+      </view>
+    </view>
   </view>
-
 </template>
 
 <script>
-import wepy from 'wepy'
+import wepy from 'wepy';
+import RequestMixin from 'mixins/request';
+
 export default class Index extends wepy.component {
-  data = {}
-  events = {}
-  methods = {}
+  props = {
+    addrUrl: {
+      // 获取子级地址列表的url
+      type: String,
+      require: true
+    },
+    addrCodeArr: {
+      type: Array,
+      twoWay: true
+    },
+    addrStr: {
+      type: String,
+      twoWay: true
+    }
+  };
+  data = {
+    animationAddressMenu: {},
+    addressMenuIsShow: false,
+    provinces: [],
+    citys: [],
+    areas: [],
+    address: [0, 0, 0]
+  };
+
+  mixins = [RequestMixin];
+
+  methods = {
+    // 点击所在地区弹出选择框
+    async selectDistrict(e) {
+      if (this.addressMenuIsShow) {
+        return;
+      }
+      this.$loading();
+      const addrResp1 = await this.writeAddress(1, '100000');
+      if (!addrResp1) return;
+      const addrResp2 = await this.writeAddress(
+        2,
+        this.provinces[this.address[0]].area_code
+      );
+      if (!addrResp2) return;
+      const cityCode = this.citys[this.address[1]]
+        ? this.citys[this.address[1]].area_code
+        : '';
+      // 处理类似澳门香港市级单位不存在
+      if (cityCode) {
+        const addrResp3 = await this.writeAddress(
+          3,
+          this.citys[this.address[1]].area_code
+        );
+        if (!addrResp3) return;
+      }
+      this.$loading(false);
+      this.startAddressAnimation(true);
+    },
+    // 点击地区选择取消按钮
+    cityCancel(e) {
+      this.startAddressAnimation(false);
+    },
+    // 点击地区选择确定按钮
+    citySure(e) {
+      const value = this.address;
+      this.startAddressAnimation(false);
+      // 将选择的城市信息显示到输入框
+      this.addrStr =
+        this.provinces[value[0]].area_name +
+        ',' +
+        /* 处理类似澳门香港市级单位不存在 */
+        (this.citys[value[1]] ? this.citys[value[1]].area_name + ',' : '') +
+        (this.areas[value[2]] ? this.areas[value[2]].area_name : '');
+      this.addrCodeArr = [
+        this.provinces[value[0]].area_code,
+        this.citys[value[1]] ? this.citys[value[1]].area_code : '',
+        this.areas[value[2]] ? this.areas[value[2]].area_code : ''
+      ];
+    },
+    // 点击蒙版时取消组件的显示
+    hideCitySelected(e) {
+      this.startAddressAnimation(false);
+    },
+    // 处理省市县联动逻辑
+    async cityChange(e) {
+      let value = e.detail.value;
+      const provinceNum = value[0];
+      const cityNum = value[1];
+      const countyNum = value[2];
+      // 如果省份选择项和之前不一样，表示滑动了省份，此时市默认是省的第一组数据，
+      if (this.address[0] !== provinceNum) {
+        this.address = [provinceNum, 0, 0];
+        this.$loading();
+        await this.writeAddress(2, this.provinces[provinceNum].area_code);
+        this.$loading(false);
+      } else if (this.address[1] !== cityNum) {
+        // 滑动选择了第二项数据，即市，此时区显示省市对应的第一组数据
+        this.address = [provinceNum, cityNum, 0];
+        this.$loading();
+        await this.writeAddress(3, this.citys[cityNum].area_code);
+        this.$loading(false);
+      } else {
+        // 滑动选择了区
+        this.address = [provinceNum, cityNum, countyNum];
+      }
+      this.$apply();
+    }
+  };
+
+  startAddressAnimation(isShow) {
+    this.addressMenuIsShow = isShow;
+    this.$apply();
+  }
+
+  /**
+   * 根据level，code获取地址列表
+   * level 要写入地址列表的等级，1省级，2市级，3区级
+   * code 获取code下面的地址列表
+   */
+  async writeAddress(level, code) {
+    const params = {
+      isMock: false,
+      parent_code: code
+    };
+    const resp = await this.GET(this.addrUrl, params);
+    if (resp.result === 'fail') {
+      this.$loading(false);
+      this.$toast(resp.message);
+      return false;
+    }
+    if (resp.result === 'success' && resp.result) {
+      switch (level) {
+        case 1:
+          this.provinces = resp.data.province;
+          this.citys = resp.data.city;
+          this.areas = resp.data.district;
+          break;
+        case 2:
+          this.citys = resp.data.city;
+          this.areas = resp.data.district;
+          break;
+        case 3:
+          this.areas = resp.data.district;
+          break;
+
+        default:
+          break;
+      }
+      this.$apply();
+      return true;
+    }
+  }
+
   onLoad() {}
 }
 </script>
+
 <style lang="less">
-.bee-address-picker {
+.rgb-view {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.picker-view {
+  width: 100%;
+  display: flex;
+  z-index: 12;
+  background-color: #fff;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0rpx;
+  left: 0rpx;
+  height: 680rpx;
+  animation: 0.2s linear picker_view;
+  .pick-btn {
+    width: 100%;
+    z-index: 9;
+    height: 100rpx;
+    display: flex;
+    font-size: 32rpx;
+    align-items: center;
+    border-bottom: 2rpx solid #f2f2f2;
+    justify-content: space-between;
+    text:first-of-type {
+      margin: 0 32rpx;
+      color: #b2b2b2;
+    }
+    text:last-of-type {
+      margin: 0 32rpx;
+      color: #09bb07;
+    }
+  }
+  picker-view {
+    width: 100%;
+    height: 600rpx;
+    font-size: 26rpx;
+  }
+}
+.picker-item {
+  line-height: 70rpx;
+  margin-left: 5rpx;
+  margin-right: 5rpx;
+  text-align: center;
+}
+.addr-show {
+  font-size: 32rpx;
+  text-align: right;
+  margin-right: 48rpx;
+}
+@keyframes picker_view {
+  from {
+    bottom: -680rpx;
+  }
+  to {
+    bottom: 0;
+  }
 }
 </style>

@@ -1,19 +1,34 @@
 <template>
-  <BeeAddressPicker></BeeAddressPicker>
+  <view>
+    <BeeAddressPicker
+        :addrCodeArr.sync="addrCodeArr"
+        :addrStr.sync="addrStr"
+        addrUrl="/khaos/queryAreaTree"
+    />
+    <button @tap="showAddressPicker">打开选择</button>
+    <view><text>已选地址：{{addrStr}}</text>已选地址的code：{{addrCodeArr}}</view>
+  </view>
 </template>
 
 <script>
-import wepy from 'wepy'
-import BeeAddressPicker from 'packages/bee-address-picker/index'
+import wepy from 'wepy';
+import BeeAddressPicker from 'packages/bee-address-picker/index';
 export default class DemoDefault extends wepy.component {
   config = {
     navigationBarTitleText: 'bee-address-picker'
-  }
+  };
   components = {
     BeeAddressPicker
-  }
-  data = {}
-  methods = {}
+  };
+  data = {
+    addrCodeArr: [0, 0, 0],
+    addrStr: ''
+  };
+  methods = {
+    showAddressPicker() {
+      this.$invoke('BeeAddressPicker', 'selectDistrict');
+    }
+  };
 }
 </script>
 <style lang="less">
