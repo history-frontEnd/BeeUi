@@ -1,6 +1,6 @@
 {
   "name": "@b1/bee-address-picker",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "省市区组件 - 小程序组件",
   "main": "./src/index.wpy",
   "scripts": {},
