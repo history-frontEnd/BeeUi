@@ -1,0 +1,27 @@
+<template>
+  <BeeModal></BeeModal>
+</template>
+
+<script>
+import wepy from 'wepy'
+import BeeModal from 'packages/bee-modal/index'
+export default class DemoDefault extends wepy.component {
+  config = {
+    navigationBarTitleText: 'bee-modal'
+  }
+  components = {
+    BeeModal
+  }
+  data = {}
+  methods = {}
+  events = {
+    'showModal': async (p1, p2, p3, $event) => {
+      let resp = await this.$invoke('BeeModal', 'showBsDialog', { cancelText: '去换绑', confirmText: '确认无误', title: '提醒', content: '已绑定手机号' });
+      let { type } = resp;
+      console.log(type)
+    }
+  }
+}
+</script>
+<style lang="less">
+</style>

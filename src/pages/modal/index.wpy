@@ -1,0 +1,38 @@
+<template>
+  <example title="bee-modal" desc="模态框">
+
+    <example-demo title="请填写示例名称" desc="请填写示例描述" source="123">
+      <demoDefault></demoDefault>
+    </example-demo>
+    <button type="primary" bindtap="changeSearchType">显示</button>
+  </example>
+</template>
+
+<script>
+import wepy from 'wepy'
+import demoDefault from './demos/demo-default'
+export default class Index extends wepy.page {
+  config = {
+    usingComponents: {
+      'example': '../../../wxc/@minui/wxc-example/dist/index',
+      'example-demo': '../../../wxc/@minui/wxc-example-demo/dist/index',
+      'example-md': '../../../wxc/@minui/wxc-example-md/dist/index'
+    }
+  }
+  components = {
+    demoDefault
+  }
+  data = {}
+  methods = {
+    changeSearchType() {
+      // let resp = await this.$invoke('../../packages/bee-modal', 'showBsDialog', { cancelText: '去换绑', confirmText: '确认无误' });
+      // let { type } = resp;
+      // console.log(type)
+      this.$broadcast('showModal');
+    }
+  }
+}
+</script>
+
+<style lang="less">
+</style>
