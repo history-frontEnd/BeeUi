@@ -11,7 +11,6 @@ $ bee install @b1/bee-toast
 ## API
 
 ### Toast【props】
-
 | 名称                  | 描述                         |
 |----------------------|------------------------------|
 |`is-show`             | [说明]： `toast` 显示控制字段。<br>类型：`Boolean`<br>默认值：`false`|

@@ -8,7 +8,6 @@
 $ npm install @b1/bee-code-input -S
 ```
 
-
 ## API
 
 ### BeeCodeInput
