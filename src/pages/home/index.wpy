@@ -1,7 +1,7 @@
 <template>
   <view class="index">
     <view class="index-hd">
-      <image class="index-logo" src="../../images/bee.jpg"></image>
+      <image class="index-logo" src="https://biosan-saas.oss-cn-beijing.aliyuncs.com/FD/beeUi/bee.jpg"></image>
       <view class="index-desc">基于wepy的小程序组件库</view>
     </view>
 
