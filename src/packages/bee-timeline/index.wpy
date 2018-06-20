@@ -1,0 +1,82 @@
+<style lang="less">
+  .bs_timeline-container{
+    background-color: white;
+    min-height: 160rpx;
+    position: relative;
+    .state{
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      position: relative;
+      .descp-warp{
+        align-self: flex-end;
+        position: absolute;
+        top: 4rpx;
+        left: 60rpx;
+        // margin-left: 16rpx;
+        .descp_level_1{
+          font-size: 28rpx;
+          color:#9D9D9D;
+        }
+        .descp_level_2{
+          font-size: 24rpx;
+          color:#9D9D9D;
+        }
+        .descp_done{
+          color:#5D5D5D;
+          font-weight: bolder;
+        }
+      }
+      ._icon{
+        width: 48rpx;
+        height: 48rpx;
+      }
+    }
+    .line{
+      width:4rpx;
+      height:100rpx;
+      position:absolute;
+      left:20rpx;
+      top:60rpx;
+      z-index: 100;
+      border-left: 4rpx dashed #CCCCCC; 
+    }
+    .done{
+      border-left: 4rpx solid #CCCCCC; 
+    }
+  }
+</style>
+<template>
+  <view class="bs_timeline-container">
+    <view class="state">
+      <view class="_icon iconfont {{item.icon}}" style="color:{{item.color && item.color}}"></view>
+      <view class="descp-warp">
+        <view class="descp_level_1 {{item.done && 'descp_done'}}">{{item.descp_level_1}}</view>
+        <view class="descp_level_2">{{item.descp_level_2}}</view>
+      </view>
+    </view>
+    <view class="line {{item.done && 'done'}}" wx:if="{{!item.last}}"></view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy';
+
+  export default class BsTimeline extends wepy.component {
+    components = {}
+
+    data = {}
+
+    computed = {
+    }
+
+    methods = {
+    }
+
+    events = {
+    }
+
+    onLoad() {
+    }
+  }
+</script>

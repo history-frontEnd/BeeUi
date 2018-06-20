@@ -1,0 +1,20 @@
+{
+  "name": "@b1/bee-timeline",
+  "version": "1.0.0",
+  "description": "时间线 - 小程序组件",
+  "main": "index.wpy",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/biosan-frontEnd/BeeUi/tree/master/src/packages/bee-timeline"
+  },
+  "author": "",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {},
+  "minConfig": {
+    "component": true
+  }
+}

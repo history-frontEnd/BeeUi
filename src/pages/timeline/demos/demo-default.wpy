@@ -1,0 +1,43 @@
+<template>
+      <repeat for="{{timelineData}}" key="index" index="index" item="item">
+        <BeeTimeline :item="item"/>
+      </repeat>
+</template>
+
+<script>
+import wepy from 'wepy'
+import BeeTimeline from 'packages/bee-timeline/index'
+export default class DemoDefault extends wepy.component {
+  config = {
+    navigationBarTitleText: 'bee-timeline'
+  }
+  components = {
+    BeeTimeline
+  }
+  data = {
+    timelineData: [
+      {
+        icon: 'icon-icon_me_Customerser',
+        done: true,
+        descp_level_1: '已开单',
+        descp_level_2: `开单时间：2018-01-01`,
+        color: '#EC6921'
+      },
+      {
+        icon: 'icon-icon_bill_grey',
+        done: true,
+        descp_level_1: '3213'
+      },
+      {
+        icon: 'icon-icon_bill_grey',
+        done: false,
+        descp_level_1: 'hello',
+        descp_level_2: `开单时间：2018-01-01`
+      }
+    ]
+  }
+  methods = {}
+}
+</script>
+<style lang="less">
+</style>

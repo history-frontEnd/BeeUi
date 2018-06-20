@@ -1,0 +1,30 @@
+<template>
+  <example title="bee-timeline" desc="时间线">
+
+    <example-demo title="请填写示例名称" desc="请填写示例描述" source="123">
+      <demoDefault></demoDefault>
+    </example-demo>
+
+  </example>
+</template>
+
+<script>
+import wepy from 'wepy'
+import demoDefault from './demos/demo-default'
+export default class Index extends wepy.page {
+  config = {
+    usingComponents: {
+      'example': '../../../wxc/@minui/wxc-example/dist/index',
+      'example-demo': '../../../wxc/@minui/wxc-example-demo/dist/index',
+      'example-md': '../../../wxc/@minui/wxc-example-md/dist/index'
+    }
+  }
+  components = {
+    demoDefault
+  }
+  data = {}
+}
+</script>
+
+<style lang="less">
+</style>
