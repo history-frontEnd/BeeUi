@@ -1,0 +1,25 @@
+<template>
+  <BeeMessage></BeeMessage>
+</template>
+
+<script>
+import wepy from 'wepy'
+import BeeMessage from 'packages/bee-message/index'
+export default class DemoDefault extends wepy.component {
+  config = {
+    navigationBarTitleText: 'bee-message'
+  }
+  components = {
+    BeeMessage
+  }
+  data = {}
+  methods = {}
+  events = {
+    showMessage: (p1) => {
+      this.$invoke('BeeMessage', 'showMessage', {type: p1})
+    }
+  }
+}
+</script>
+<style lang="less">
+</style>

@@ -1,0 +1,19 @@
+{
+  "name": "@b1/bee-message",
+  "version": "0.0.6",
+  "description": "全局消息提醒 - 小程序组件",
+  "main": "index.wpy",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/biosan-frontEnd/BeeUi/tree/master/src/packages/bee-message"
+  },
+  "author": "",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "minConfig": {
+    "component": true
+  }
+}

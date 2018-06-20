@@ -19,7 +19,8 @@ export default class extends wepy.app {
       'pages/address-picker/index',
       'pages/toast/index',
       'pages/modal/index',
-      'pages/timeline/index'
+      'pages/timeline/index',
+      'pages/message/index'
 
     ],
     window: {

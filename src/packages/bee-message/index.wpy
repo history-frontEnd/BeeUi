@@ -1,0 +1,88 @@
+<template>
+  <view class="i-class i-message i-message-{{messageData.type}} {{ messageData.visible ? 'i-message-show' : '' }}">
+    {{ messageData.content }}
+  </view>
+
+</template>
+
+<script>
+import wepy from 'wepy';
+import {messageConfig} from '../../config/globalData';
+
+export default class Message extends wepy.component {
+  data = {
+    messageData: {}
+  }
+  events = {}
+  methods = {
+    showMessage(options) {
+      let timmer = null;
+      const { type = 'default', duration = 2, content = '默认提醒文案' } = options;
+      this.messageData = {
+        ...options,
+        type,
+        duration,
+        visible: true,
+        content
+      }
+      const d = duration * 1000;
+
+      if (timmer) clearTimeout(timmer);
+      if (d !== 0) {
+        timmer = setTimeout(() => {
+          this.hideMessage();
+          timmer = null;
+        }, d);
+      }
+    }
+  }
+  hideMessage () {
+    this.messageData = {
+      ...messageConfig
+    }
+    this.$apply();
+  }
+  onLoad() {}
+}
+</script>
+<style lang="less">
+@import "../../less/base.less";
+
+.i-message{
+    display: block;
+    width: 100%;
+    min-height: 32px;
+    line-height: 2.3;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: @primary-color;
+    color: #fff;
+    text-align: center;
+    font-size: @size-font-base;
+    z-index: @zindex-message;
+    opacity: 0;
+    -webkit-transform: translateZ(0) translateY(-100%);
+    transition: all 0.4s ease-in-out;
+
+    &-show{
+        -webkit-transform: translateZ(0) translateY(0);
+        opacity: 1;
+    }
+
+    &-default{
+        background: @primary-color;
+    }
+
+    &-success{
+        background: @success-color;
+    }
+    &-warning{
+        background: @warning-color;
+    }
+    &-error{
+        background: @error-color;
+    }
+}
+</style>

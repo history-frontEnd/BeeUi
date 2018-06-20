@@ -2,6 +2,10 @@
 /* 全局变量文件,根据需要对变量做增删改 */
 //----------------------------------
 
+/* font size */
+@size-font-base         : 28rpx;
+@size-font-small        : 24rpx;
+
 /* 页面背景色 */
 @page-bg-color: #f5f5f5;
 
@@ -32,6 +36,18 @@ textarea {
 @btn-border-radius: 12px;
 
 /* default colors */
+@primary-color          : #2d8cf0;
+@info-color             : #2db7f5;
+@success-color          : #19be6b;
+@warning-color          : #ff9900;
+@error-color            : #ed3f14;
+@link-color             : #2D8cF0;
+@link-hover-color       : tint(@link-color, 20%);
+@link-active-color      : shade(@link-color, 5%);
+@selected-color         : fade(@primary-color, 90%);
+@tooltip-color          : #fff;
+@subsidiary-color       : #80848f;
+@rate-star-color        : #f5a623;
 @text-color: #333;
 @border-color: #ccc;
 @active-color: #e8e8e8;
@@ -119,3 +135,6 @@ progress {
 /* segment */
 @segment-default-color: #108ee9;
 @segment-warn-color: #f00;
+
+/* zIndex */
+@zindex-message         : 1010;
