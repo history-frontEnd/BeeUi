@@ -1,0 +1,100 @@
+0 silly input [ 'publish' ]
+1 silly flags { exact: true,
+1 silly flags   message: 'Publish by BeeCli',
+1 silly flags   scope: '@b1/bee-modal' }
+2 verbose rootPath /Users/yyx/ProjectSource/BeeUi
+3 silly isInitialized
+4 silly isInitialized true
+5 silly existsSync /Users/yyx/ProjectSource/BeeUi/VERSION
+6 info scope @b1/bee-modal
+7 silly initialize attempt
+8 silly isDetachedHead
+9 silly getCurrentBranch
+10 verbose getCurrentBranch master
+11 verbose isDetachedHead false
+12 silly getCurrentBranch
+13 verbose getCurrentBranch master
+14 silly getUpdates
+15 info Checking for updated packages...
+16 silly hasTags
+17 verbose hasTags true
+18 silly getLastTag
+19 verbose getLastTag @b1/bee-address-picker@1.0.2
+20 info Comparing with @b1/bee-address-picker@1.0.2.
+21 silly diffSinceIn @b1/bee-address-picker@1.0.2 src/packages/bee-modal
+22 silly diff src/packages/bee-modal/.npmignore
+22 silly diff src/packages/bee-modal/LICENSE
+22 silly diff src/packages/bee-modal/README.md
+22 silly diff src/packages/bee-modal/index.wpy
+22 silly diff src/packages/bee-modal/package.json
+23 verbose updated @b1/bee-modal
+24 info Checking for prereleased packages...
+25 silly collectDependents
+26 silly isPackageDependentOf @b1/bee-modal @b1/bee-modal
+27 silly collectUpdates
+28 verbose has filtered update @b1/bee-modal
+29 silly initialize success
+30 silly execute attempt
+31 silly runScriptSync preversion testBee
+32 silly runScriptSync preversion @b1/bee-modal
+33 silly runScriptSync version @b1/bee-modal
+34 silly runScriptSync version testBee
+35 silly addFile /Users/yyx/ProjectSource/BeeUi/src/packages/bee-modal/package.json
+36 silly commit Publish by BeeCli
+36 silly commit
+36 silly commit  - @b1/bee-modal@0.0.6
+37 verbose commit [ 'commit',
+37 verbose commit   '--no-verify',
+37 verbose commit   '-F',
+37 verbose commit   '/private/var/folders/3v/ghf3kk3n6nzd56d7xykp5v9w0000gp/T/5f9e03da-a7e5-4d4b-810d-7cd0c89b2029/lerna-commit.txt' ]
+38 silly addTag @b1/bee-modal@0.0.6
+39 silly runScriptSync postversion @b1/bee-modal
+40 silly runScriptSync postversion testBee
+41 info publish Publishing packages to npm...
+42 silly existsSync /Users/yyx/ProjectSource/BeeUi/src/packages/bee-modal/scripts/prepublish.js
+43 verbose execScript No prepublish script found at /Users/yyx/ProjectSource/BeeUi/src/packages/bee-modal/scripts/prepublish.js
+44 verbose publishing @b1/bee-modal
+45 silly publishTaggedInDir latest bee-modal
+46 silly getExecOpts { cwd: '/Users/yyx/ProjectSource/BeeUi/src/packages/bee-modal' }
+47 error publish Retrying failed publish: @b1/bee-modal
+48 verbose publish error undefined
+49 verbose publishing @b1/bee-modal
+50 silly publishTaggedInDir latest bee-modal
+51 silly getExecOpts { cwd: '/Users/yyx/ProjectSource/BeeUi/src/packages/bee-modal' }
+52 error publish Retrying failed publish: @b1/bee-modal
+53 verbose publish error undefined
+54 verbose publishing @b1/bee-modal
+55 silly publishTaggedInDir latest bee-modal
+56 silly getExecOpts { cwd: '/Users/yyx/ProjectSource/BeeUi/src/packages/bee-modal' }
+57 error publish Retrying failed publish: @b1/bee-modal
+58 verbose publish error undefined
+59 verbose publishing @b1/bee-modal
+60 silly publishTaggedInDir latest bee-modal
+61 silly getExecOpts { cwd: '/Users/yyx/ProjectSource/BeeUi/src/packages/bee-modal' }
+62 error publish Retrying failed publish: @b1/bee-modal
+63 verbose publish error undefined
+64 verbose publishing @b1/bee-modal
+65 silly publishTaggedInDir latest bee-modal
+66 silly getExecOpts { cwd: '/Users/yyx/ProjectSource/BeeUi/src/packages/bee-modal' }
+67 error publish Ran out of retries while publishing @b1/bee-modal Error: Command failed: npm publish --tag latest
+67 error publish npm ERR! publish Failed PUT 403
+67 error publish npm ERR! code E403
+67 error publish npm ERR! Forbidden : @b1/bee-modal
+67 error publish
+67 error publish npm ERR! A complete log of this run can be found in:
+67 error publish npm ERR!     /Users/yyx/.npm/_logs/2018-06-20T03_03_50_642Z-debug.log
+67 error publish
+67 error publish     at Promise.all.then.arr (/usr/local/lib/node_modules/@b1/bee-cli/node_modules/execa/index.js:236:11)
+67 error publish     at <anonymous>
+67 error publish     at process._tickCallback (internal/process/next_tick.js:188:7)
+68 error execute callback with error
+69 error Error: Command failed: npm publish --tag latest
+69 error npm ERR! publish Failed PUT 403
+69 error npm ERR! code E403
+69 error npm ERR! Forbidden : @b1/bee-modal
+69 error
+69 error npm ERR! A complete log of this run can be found in:
+69 error npm ERR!     /Users/yyx/.npm/_logs/2018-06-20T03_03_50_642Z-debug.log
+69 error
+69 error     at Promise.all.then.arr (/usr/local/lib/node_modules/@b1/bee-cli/node_modules/execa/index.js:236:11)
+69 error     at <anonymous>

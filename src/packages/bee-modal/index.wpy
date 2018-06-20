@@ -164,7 +164,8 @@
     }
 
     data = {
-      bsDialog: {}
+      bsDialog: {},
+      type: ''
     }
 
     computed = {
