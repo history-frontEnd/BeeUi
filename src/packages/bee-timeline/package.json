@@ -1,6 +1,6 @@
 {
   "name": "@b1/bee-timeline",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "时间线 - 小程序组件",
   "main": "index.wpy",
   "scripts": {},
@@ -13,7 +13,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "dependencies": {},
   "minConfig": {
     "component": true
   }
