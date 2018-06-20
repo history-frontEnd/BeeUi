@@ -1,6 +1,6 @@
 {
   "name": "@b1/bee-modal",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "模态框 - 小程序组件",
   "main": "index.wpy",
   "scripts": {},
@@ -13,7 +13,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "dependencies": {},
   "minConfig": {
     "component": true
   }
