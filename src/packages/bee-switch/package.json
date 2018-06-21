@@ -1,0 +1,20 @@
+{
+  "name": "@b1/bee-switch",
+  "version": "1.0.0",
+  "description": "切换控件 - 小程序组件",
+  "main": "index.wpy",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/biosan-frontEnd/BeeUi/tree/master/src/packages/bee-switch"
+  },
+  "author": "",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {},
+  "minConfig": {
+    "component": true
+  }
+}

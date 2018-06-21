@@ -1,0 +1,135 @@
+<template>
+  <view class="i-class i-switch {{count.setSize(item.size)}} {{count.setCurrent(item.value, item.disabled)}}" bindtap="toggle">
+    <input type="text" value="{{item.value}}" class="i-switch-hide-input"/>
+    <view class="i-switch-inner" wx:if="{{item.value}}">
+        <slot name="open"></slot>
+    </view>
+    <view class="i-switch-inner" wx:else>
+        <slot name="close"></slot>
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import scripts from '../bee-switch/scripts.wxs'
+
+export default class Index extends wepy.component {
+  data = {}
+  wxs = {
+    count: scripts
+  }
+  props = {
+    item: {
+      type: Object,
+      twoWay: true
+    }
+  }
+  events = {}
+  methods = {
+    toggle: function (params) {
+      this.data.item.value = !this.data.item.value;
+      this.$emit('log')
+    }
+  }
+  onLoad() {
+    console.log(this)
+  }
+}
+</script>
+<style lang="less">
+@import "../../less/base.less";
+@import "../../less/mixins.less";
+@switch-prefix-cls: ~"i-switch";
+
+.@{switch-prefix-cls} {
+    display: inline-block;
+    width: 96rpx;
+    height: 48rpx;
+    line-height: 48rpx;
+    border-radius: 48rpx;
+    vertical-align: middle;
+    border: 1px solid #ccc;
+    background-color: #ccc;
+    position: relative;
+    cursor: pointer;
+    -webkit-tap-highlight-color:transparent;
+    transition: all @transition-time @ease-in-out;
+    &-hide-input{
+        display: none;
+        opacity: 0;
+    }
+    &-inner {
+        color: #fff;
+        font-size: 24rpx;
+        position: absolute;
+        left: 50rpx;
+        vertical-align: middle;
+
+        .i-icon {
+            width: 24rpx;
+            height: 24rpx;
+            text-align: center;
+            vertical-align: middle;
+        }
+    }
+
+    &:after {
+        content: '';
+        width: 44rpx;
+        height: 44rpx;
+        border-radius: 44rpx;
+        background-color: #fff;
+        position: absolute;
+        left: 2rpx;
+        top: 2rpx;
+        cursor: pointer;
+        transition: left @transition-time @ease-in-out, width @transition-time @ease-in-out;
+    }
+
+
+    &-checked:after {
+        left: 16rpx;
+    }
+
+    &-large{
+        width: 120rpx;
+    }
+
+
+    &-large&-checked:after {
+        left: 74rpx;
+    }
+
+    &-checked:after {
+        left: 50rpx;
+    }
+
+    &-checked {
+        border-color: @primary-color;
+        background-color: @primary-color;
+
+        .@{switch-prefix-cls}-inner {
+            left: 16rpx;
+        }
+
+        &:after {
+            left: 50rpx;
+        }
+    }
+
+    &-disabled {
+        background: #f3f3f3;
+        border-color: #f3f3f3;
+
+        &:after {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .@{switch-prefix-cls}-inner {
+            color: #ccc;
+        }
+    }
+}
+</style>

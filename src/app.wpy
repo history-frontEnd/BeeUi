@@ -21,7 +21,8 @@ export default class extends wepy.app {
       'pages/modal/index',
       'pages/timeline/index',
       'pages/message/index',
-      'pages/list/index'
+      'pages/list/index',
+      'pages/switch/index'
 
     ],
     window: {

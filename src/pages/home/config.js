@@ -50,6 +50,12 @@ module.exports = {
           "name": "单行列表",
           "icon": "",
           "code": "https://s10.mogucdn.com/mlcdn/c45406/171107_1361j09d04c4426a5gd743i7kk5hg_480x480.jpg"
+        },
+        {
+          "id": "switch",
+          "name": "切换",
+          "icon": "",
+          "code": "https://s10.mogucdn.com/mlcdn/c45406/171107_1361j09d04c4426a5gd743i7kk5hg_480x480.jpg"
         }
       ]
     },

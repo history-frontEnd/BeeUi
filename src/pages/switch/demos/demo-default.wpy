@@ -1,0 +1,50 @@
+<template>
+<view>
+  <BeeSwitch :item.sync="switchData"/>
+  <BeeSwitch2 :item.sync="switchData2"/>
+  <BeeSwitch3 :item.sync="switchData3">
+    <view slot="open">开启</view>
+    <view slot="close">关闭</view>
+  </BeeSwitch3>
+</view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import BeeSwitch from 'packages/bee-switch/index'
+export default class DemoDefault extends wepy.component {
+  config = {
+    navigationBarTitleText: 'bee-switch'
+  }
+  components = {
+    BeeSwitch: BeeSwitch,
+    BeeSwitch2: BeeSwitch,
+    BeeSwitch3: BeeSwitch
+  }
+  data = {
+    switchData: {
+      value: false,
+      disabled: false,
+      size: 'large'
+    },
+    switchData2: {
+      value: false,
+      disabled: false,
+      size: 'default'
+    },
+    switchData3: {
+      value: true,
+      disabled: false,
+      size: 'large'
+    }
+  }
+  events = {
+    log: function (params) {
+      console.log(this.data)
+    }
+  }
+  methods = {}
+}
+</script>
+<style lang="less">
+</style>
