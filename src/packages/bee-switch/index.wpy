@@ -89,7 +89,8 @@ export default class Index extends wepy.component {
 
 
     &-checked:after {
-        left: 16rpx;
+        // left: 16rpx;
+        right: 2rpx;
     }
 
     &-large{
