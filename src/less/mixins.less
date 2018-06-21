@@ -53,6 +53,19 @@ open-data {
   bottom: @bottom;
   left: @left;
 }
+.common_hairline() {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  transform: scale(.5);
+  transform-origin: 0 0;
+  pointer-events: none;
+  box-sizing: border-box;
+  border: 0 solid @border-color-split;
+}
 
 .hairline(@direction, @color: @border_line) when (@direction = 'bottom') {
   border-bottom: 2px solid @color;

@@ -1,0 +1,46 @@
+<template>
+  <view>
+    <BeeList1 :item="data_1"/>
+    <BeeList2 :item="data_2"/>
+    <BeeList3 :item="data_3"/>
+    <BeeList4 :item="data_2">
+      <text class="iconfont icon-icon_me_report" slot="icon"></text>
+    </BeeList4>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import BeeList from 'packages/bee-cell/index'
+export default class DemoDefault extends wepy.component {
+  config = {
+    navigationBarTitleText: 'bee-list'
+  }
+  components = {
+    BeeList1: BeeList,
+    BeeList2: BeeList,
+    BeeList3: BeeList,
+    BeeList4: BeeList
+  }
+  data = {
+    data_1: {
+      title: '单行列表'
+    },
+    data_2: {
+      title: '单行列表',
+      isLink: true,
+      value: '详细信息',
+      linkType: 'switchTab',
+      url: '/pages/home/index'
+    },
+    data_3: {
+      title: '单行列表',
+      label: '附加描述',
+      value: '详细信息'
+    }
+  }
+  methods = {}
+}
+</script>
+<style lang="less">
+</style>

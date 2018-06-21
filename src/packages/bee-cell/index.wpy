@@ -1,0 +1,131 @@
+<template>
+  <view @tap="handleTap" class="i-class i-cell {{ item.isLastCell ? 'i-cell-last' : '' }} {{ item.isLink ? 'i-cell-access' : '' }}">
+    <view class="i-cell-icon">
+        <slot name="icon"></slot>
+    </view>
+    <view class="i-cell-bd">
+        <view wx:if="{{ item.title }}" class="i-cell-text">{{ item.title }}</view>
+        <view wx:if="{{ item.label }}" class="i-cell-desc">{{ item.label }}</view>
+        <slot></slot>
+    </view>
+    <view catchtap="navigateTo" class="i-cell-ft">
+        <block wx:if="{{item.value}}">{{ item.value }}</block>
+        <block wx:else>
+            <slot name="footer"></slot>
+        </block>
+    </view>
+  </view>
+
+</template>
+
+<script>
+import wepy from 'wepy'
+export default class Cell extends wepy.component {
+  data = { }
+  props = {
+    item: {
+      type: Object
+    }
+  }
+  events = {}
+  methods = {
+    navigateTo () {
+      const { url, isLink, linkType } = this.data.item;
+      const type = typeof isLink;
+
+      // if (!isLink || !url || url === 'true' || url === 'false') return;
+
+      if (type !== 'boolean' && type !== 'string') {
+        console.warn('isLink 属性值必须是一个字符串或布尔值', isLink);
+        return;
+      }
+
+      if (['navigateTo', 'redirectTo', 'switchTab', 'reLaunch'].indexOf(linkType) === -1) {
+        console.warn('linkType 属性可选值为 navigateTo，redirectTo，switchTab，reLaunch', linkType);
+        return;
+      }
+      wepy[linkType].call(wepy, {url: url});
+    },
+    handleTap () {
+      if (!this.data.item.onlyTapFooter) {
+        this.methods.navigateTo.call(this);
+      }
+    }
+  }
+  onLoad() {
+  }
+}
+</script>
+<style lang="less">
+@import "../../less/base.less";
+@import "../../less/mixins.less";
+
+.i-cell {
+    position: relative;
+    padding: 12px 15px;
+    display: flex;
+    background: #fff;
+    align-items: center;
+    line-height: 1.5;
+    min-height: 58rpx;
+    font-size: @size-font-base;
+    overflow: hidden;
+
+    &::after{
+        .common_hairline();
+        border-bottom-width: 1px;
+        left: 15px;
+        right: 0;
+    }
+    &-last::after{
+        display: none;
+    }
+
+    &-icon{
+        margin-right: 5px;
+        &:empty{
+            display: none
+        }
+    }
+
+    &-bd{
+        flex: 1;
+    }
+
+    &-text{
+        line-height: 24px;
+        font-size: @size-font-base;
+    }
+
+    &-desc{
+        line-height: 1.2;
+        font-size: @size-font-small;
+        color: @subsidiary-color;
+    }
+
+    &-ft{
+        position: relative;
+        text-align: right;
+        color: @text-color;
+    }
+
+    &-access &-ft{
+        padding-right: 13px;
+        &::after{
+            content: " ";
+            display: inline-block;
+            width: 14rpx;
+            height: 14rpx;
+            position: absolute;
+            top: 50%;
+            right: -4rpx;
+            border-width: 4rpx 4rpx 0 0;
+            border-color: @border-color-base;
+            border-style: solid;
+            transform: translateY(-50%) matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+        }
+    }
+
+
+}
+</style>

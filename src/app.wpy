@@ -20,7 +20,8 @@ export default class extends wepy.app {
       'pages/toast/index',
       'pages/modal/index',
       'pages/timeline/index',
-      'pages/message/index'
+      'pages/message/index',
+      'pages/list/index'
 
     ],
     window: {
