@@ -15,7 +15,7 @@ import wepy from 'wepy'
 import scripts from '../bee-switch/scripts.wxs'
 
 export default class Index extends wepy.component {
-  data = {}
+  data = { }
   wxs = {
     count: scripts
   }
