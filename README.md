@@ -1,5 +1,4 @@
 # BeeUi-组件库
-
 BeeUi是基于[wepy](https://github.com/Tencent/wepy)的一套小程序开发组件库, 样式参考[minui](https://github.com/meili/minui)。
 
 ![](https://biosan-saas.oss-cn-beijing.aliyuncs.com/FD/beeUi/github.jpg)
